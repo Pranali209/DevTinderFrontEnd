@@ -1,6 +1,11 @@
 import React from 'react'
 import Logo from '../../assets/Logo.png'
+import { useSelector } from 'react-redux'
 function Header() {
+
+  const data = useSelector(store => store.user)
+  console.log(data);
+  
   return (
     <div className="navbar bg-base-100 py-6 px-8 shadow-xl">
     <div className="flex-1">
