@@ -9,7 +9,7 @@ const UserSlicer = createSlice({
             return action.payload
         },
         removeUser : (state ,action)=>{
-            return null
+            action.payload = null
         }
     }
 })

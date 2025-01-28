@@ -1,11 +1,38 @@
 import React from 'react'
 import Logo from '../../assets/Logo.png'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import axios from 'axios'
+import { Base_Url } from '../../utlis/Contant'
+import { removeUser } from '../../utlis/UserSlice'
+import { useNavigate } from 'react-router-dom'
 function Header() {
-
-  const data = useSelector(store => store.user)
-  console.log(data);
   
+  function clearCookies() {
+    document.cookie = "token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+}
+  const data = useSelector(store => store.user)
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
+  async function HandleLogout(params) {
+    try {
+       const res  = await axios.post(Base_Url + '/logout' , {
+        withCredentials:true
+      })
+      if(res.status == 200)
+      {
+         clearCookies();
+         dispatch(removeUser())
+         navigate('/login')
+      }
+      console.log(res);
+      
+      
+    } catch (error) {
+        console.log(error);
+        
+    }
+    
+  }
   return (
     <div className="navbar bg-base-100 py-6 px-8 shadow-xl">
     <div className="flex-1">
@@ -31,7 +58,7 @@ function Header() {
             </a>
           </li>
           <li><a>Settings</a></li>
-          <li><a>Logout</a></li>
+          <li><a onClick={HandleLogout}>Logout</a></li>
         </ul>
       </div>
     </div>
