@@ -5,6 +5,7 @@ const UserSlicer = createSlice({
     initialState: null,
     reducers: {
         addUser : (state ,action)=>{
+           console.log(action.payload , "UserData");
            
             return action.payload
         },

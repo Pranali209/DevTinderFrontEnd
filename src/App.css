@@ -1,5 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+@import "@fortawesome/fontawesome-free/css/all.min.css";
 
 body{
     font-family: 'inter';
+}
+.gradientProfile
+{
+    background: rgb(52,76,183);
+    background: linear-gradient(90deg, rgba(52,76,183,1) 0%, rgba(239,241,246,1) 100%);
 }

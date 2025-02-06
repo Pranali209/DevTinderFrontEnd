@@ -10,6 +10,8 @@ import axios from 'axios'
 import { Base_Url } from './utlis/Contant'
 import { useDispatch, useSelector } from 'react-redux'
 import { addUser } from './utlis/UserSlice'
+import People from  './assets/image.png'
+import ImageBottom from './component/image'
 
 function App() {
 
@@ -46,13 +48,12 @@ function App() {
   },[])
   return (
     <>
- 
-       <div>
+  <div className=' bg-gradient-to-br from-[#870BA3] to-[#FF9F2D] border-[1px] border-[#870BA3]'>
+      <Header />
       
-        <Header/>
-         <Outlet/>
+      <Outlet />
       
-       </div>
+    </div>
    
     </>
   )

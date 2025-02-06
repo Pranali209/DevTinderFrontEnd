@@ -10,6 +10,7 @@ import { Store } from './utlis/store.js'
 import Feed from './Pages/Feed.jsx'
 import Login from './component/Login/index.jsx'
 import SignUp from './component/SignUp/index.jsx'
+import EditProfile from './component/Profile/index.jsx'
 const router = createBrowserRouter([
   {
     path: '/',
@@ -26,6 +27,9 @@ const router = createBrowserRouter([
       {
         path: '/signup',
         element: <SignUp/>
+      },{
+        path: '/editprofile',
+        element: <EditProfile/>
       }
       
     ]

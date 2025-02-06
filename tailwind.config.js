@@ -11,6 +11,11 @@ export default {
     extend: {
           colors:{
             'Mytheme': '#340065',
+          },
+          backgroundImage: {
+             'people': "url('/src/assets/image.png')",
+            'editprofile': "url('/src/assets/bg-editprofile.avif')",
+           
           }
     },
   },

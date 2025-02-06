@@ -8,8 +8,8 @@ import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 const Login = () => {
     const dispatch = useDispatch()
-    const [email, setEmail] = useState('ravigupta@gmail.com')
-    const [password, setPassword] = useState('Ravigupta@123')
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
     const [error , setError] = useState('')
     const navigate = useNavigate()
     async function HandleLogin(params) {
@@ -42,24 +42,24 @@ const Login = () => {
     }
     return (
         <div className="flex items-center justify-center my-12">
-            <div className="bg-gray-900 border-[4px] border-blue-900 rounded-2xl hover:border-yellow-300 transition-all duration-200">
-                <div className="mx-auto flex items-center space-y-4 py-16 px-12 font-semibold text-gray-500 flex-col">
+            <div className="bg-black border-[4px] border-blue-900 rounded-2xl hover:border-yellow-300 transition-all duration-200">
+                <div className="flex flex-col items-center px-12 py-16 mx-auto space-y-4 font-semibold text-gray-500">
                     <img src={Logo} alt="logo" className='w-28' />
-                    <h1 className="text-white text-2xl">Sign in to DevTinder</h1>
+                    <h1 className="text-2xl text-white">Sign in to DevTinder</h1>
                     <input value={email} onChange={(e) => setEmail(e.target.value)} 
-                        className="w-full p-2 bg-blue-900 rounded-md border border-gray-700 focus:border-blue-700 hover:border-blue-500 transition-all duration-200" 
+                        className="w-full p-2 transition-all duration-200 bg-gray-900 border border-gray-700 rounded-md focus:border-blue-700 hover:border-blue-500" 
                         placeholder="Email" type="email" name="email" id />
                     
                     <input value={password} onChange={(e) => setPassword(e.target.value)} 
-                        className="w-full p-2 bg-blue-900 rounded-md border border-gray-700 focus:border-blue-700 hover:border-blue-500 transition-all duration-200" placeholder="Password" type="password" name="password" id />
-                    {error && <p className='text-bold text-red-600'> Error : {error}</p>}
+                        className="w-full p-2 transition-all duration-200 bg-gray-900 border border-gray-700 rounded-md focus:border-blue-700 hover:border-blue-500" placeholder="Password" type="password" name="password" id />
+                    {error && <p className='text-red-600 text-bold'> Error : {error}</p>}
                     
                     <input onClick={HandleLogin}
-                        className="w-full p-2 bg-gray-50 rounded-full font-bold text-gray-900 border-[4px] border-gray-700 hover:border-blue-500 transition-all duration-200" type="submit" id />
-                    <p>
+                        className="w-full p-2 bg-yellow-400 mx-[45%]  text-gray-900 font-bold py-2 px-4 mt-5 rounded-md focus:outline-none focus:shadow-outline" type="submit" id />
+                    <p className='text-gray-700'>
                         Don't have an account?
-                        <Link  to={navigate('/signup')}
-                        className="font-semibold text-white hover:text-blue-500 transition-all duration-200" href> Sign up</Link>
+                        <Link  to='/signup'
+                        className="font-semibold text-gray-700 transition-all duration-200 hover:text-blue-500" href> Sign up</Link>
                     </p>
                 </div>
             </div>

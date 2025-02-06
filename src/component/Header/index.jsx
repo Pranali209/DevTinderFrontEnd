@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import axios from 'axios'
 import { Base_Url } from '../../utlis/Contant'
 import { removeUser } from '../../utlis/UserSlice'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate , Link} from 'react-router-dom'
 function Header() {
   
   function clearCookies() {
@@ -34,7 +34,7 @@ function Header() {
     
   }
   return (
-    <div className="navbar bg-base-100 py-6 px-8 shadow-xl">
+    <div className="navbar bg-black py-6 px-8 shadow-xl">
     <div className="flex-1">
       <img src= {Logo}  alt="logo" className='w-16'/>
     </div>
@@ -52,10 +52,10 @@ function Header() {
           tabIndex={0}
           className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
           <li>
-            <a className="justify-between">
+            <Link className="justify-between" to = "/editprofile">
               Profile
               <span className="badge">New</span>
-            </a>
+            </Link>
           </li>
           <li><a>Settings</a></li>
           <li><a onClick={HandleLogout}>Logout</a></li>
