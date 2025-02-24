@@ -55,7 +55,7 @@ const Login = () => {
                     {error && <p className='text-red-600 text-bold'> Error : {error}</p>}
                     
                     <input onClick={HandleLogin}
-                        className="w-full p-2 bg-yellow-400 mx-[45%]  text-gray-900 font-bold py-2 px-4 mt-5 rounded-md focus:outline-none focus:shadow-outline" type="submit" id />
+                        className="w-full p-2 bg-yellow-400 mx-[45%]  cursor-pointer text-gray-900 font-bold py-2 px-4 mt-5 rounded-md focus:outline-none focus:shadow-outline" type="submit" id />
                     <p className='text-gray-700'>
                         Don't have an account?
                         <Link  to='/signup'

@@ -34,13 +34,13 @@ function Header() {
     
   }
   return (
-    <div className="navbar bg-black py-6 px-8 shadow-xl">
+    <div className="px-8 py-6 bg-black shadow-xl navbar">
     <div className="flex-1">
       <img src= {Logo}  alt="logo" className='w-16'/>
     </div>
     <div className="flex-none gap-2">
       
-      <div className="dropdown dropdown-end mx-10">
+      <div className="mx-10 dropdown dropdown-end">
         <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar ">
           <div className="w-20 rounded-full">
             <img
@@ -52,7 +52,7 @@ function Header() {
           tabIndex={0}
           className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
           <li>
-            <Link className="justify-between" to = "/editprofile">
+            <Link className="justify-between" to = "/dashboard">
               Profile
               <span className="badge">New</span>
             </Link>

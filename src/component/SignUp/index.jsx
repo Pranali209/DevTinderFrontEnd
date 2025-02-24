@@ -5,7 +5,8 @@ import { Base_Url } from '../../utlis/Contant';
 import Input from '../Input';
 
 const SignUp = () => {
-    const [show, setShow] = useState(false)
+    const [showSuccess, setshowSuccess] = useState("")
+    const [showError, setshowError] = useState("")
     const navigate = useNavigate()
     const [selectedImage, setSelectedImage] = useState(null);
     const [formdata, setFormdata] = useState('')
@@ -28,7 +29,7 @@ const SignUp = () => {
         e.preventDefault();
         console.log(e);
         console.log(selectedImage);
-        
+
 
         setFormdata({
             photoUrl: selectedImage,
@@ -40,29 +41,52 @@ const SignUp = () => {
             password: e.target[6].value,
             about: e.target[7].value,
             skills: e.target[8].value,
-            phone: e.target[10].value
+            phone: e.target[9].value,
+            twitterId: e.target[10].value,
+            linkedinId: e.target[11].value
 
         })
         if (formdata) {
-            console.log(formdata);
+            try{
+                const res = await axios.post(Base_Url + '/signup', {
+                    photoUrl: selectedImage,
+                    firstName: formdata.firstName,
+                    lastName: formdata.lastName,
+                    gender: formdata.gender,
+                    age: formdata.age,
+                    email: formdata.email,
+                    password: formdata.password,
+                    about: formdata.about,
+                    skills: formdata.skills,
+                    phone: formdata.phone
+    
+    
+                }, {
+                    withCredentials: true
+                })
+                
+                if(res.status == 200)
+                {
+                    setshowSuccess(res.data)
+                    setTimeout(() => {
+                        setshowSuccess('')
+                    }, [2000])
+                }
 
-            const res = await axios.post(Base_Url + '/signup', {
-                photoUrl: selectedImage,
-                firstName: formdata.firstName,
-                lastName: formdata.lastName,
-                gender: formdata.gender,
-                age: formdata.age,
-                email: formdata.email,
-                password: formdata.password,
-                about: formdata.about,
-                skills: formdata.skills,
-                phone: formdata.phone
-
-
-            }, {
-                withCredentials: true
-            })
-            console.log(res);
+              
+            }
+            catch(error){
+               
+                setshowError(error.response.data)
+                setTimeout(() => {
+                    setshowError('')
+                }, [2000])
+                
+            }
+   
+            
+           
+           
         }
 
 
@@ -76,6 +100,16 @@ const SignUp = () => {
 
     return (
         <div className="container my-14 mx-auto w-[70%] p-8 shadow-md bg-black border-[4px] border-blue-900 rounded-2xl hover:border-yellow-300 transition-all duration-200">
+             {showSuccess && (<div className="z-30 toast toast-top toast-start">
+                <div className="alert alert-success">
+                    <span>{showSuccess}</span>
+                </div>
+            </div>)}
+            {showError && (<div className="z-30 toast toast-top toast-start">
+                <div className="alert !bg-red-500 alert-success">
+                    <span>{showError}</span>
+                </div>
+            </div>)}
             <div className='my-10'>
                 <h1 className='text-4xl font-semibold text-center text-white '> Lets get you started</h1>
                 <p className='mt-3 text-center text-gray-200'>Enter the details to get going</p>
@@ -140,7 +174,7 @@ const SignUp = () => {
 
                 <div>
                     <label htmlFor="about" className="block mb-2 font-bold text-white">About</label>
-                    <textarea id="about"  name="about" placeholder="Bio (keep it short and sweet)" className="w-full px-3 py-2 bg-gray-900 border border-gray-300 rounded-md focus:outline-none focus:ring-blue-500 focus:border-blue-500" />
+                    <textarea id="about" name="about" placeholder="Bio (keep it short and sweet)" className="w-full px-3 py-2 bg-gray-900 border border-gray-300 rounded-md focus:outline-none focus:ring-blue-500 focus:border-blue-500" />
                 </div>
                 <div>
                     <label htmlFor="skills" className="block mb-2 font-bold text-white">Skills</label>

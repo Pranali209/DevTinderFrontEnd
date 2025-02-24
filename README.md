@@ -14,3 +14,23 @@ packages used
 2. daisyUi 
 3. redux toolkit
 4. axios
+
+features build
+1. login /logout
+2. edit profilw
+3. feed
+4. signup
+5. tost message 
+
+build recently
+1. left swipe  to ignore the profile
+2. right to like
+3. list of connections received
+6. accept or rejected the received request
+
+
+
+features to build yet
+4. list of connections sent
+5. forgot password 
+7. matches 
