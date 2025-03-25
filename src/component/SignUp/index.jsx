@@ -70,7 +70,9 @@ const SignUp = () => {
                     setshowSuccess(res.data)
                     setTimeout(() => {
                         setshowSuccess('')
+                        navigate('/login')
                     }, [2000])
+                   
                 }
 
               

@@ -20,13 +20,13 @@ function Match() {
     <div className='px-8 py-5 '>
     {match.length > 0 ? (
         match.map((match, index) => (
-            <div className="shadow-xl card card-side bg-base-100">
-                <figure>
+            <div className="mt-5 shadow-xl card card-side bg-base-100" key={index}>
+               
                     <img
                         src={match.photoUrl}
                         alt="Movie" 
-                        className='w-64'/>
-                </figure>
+                        className='object-cover w-64 h-auto'/>
+               
                 <div className="card-body">
                     <span className="inline text-2xl font-semibold text-white">{match.firstName}  {match.lastName}</span>
                    <p className='text-lg text-white'> {match.about}</p>

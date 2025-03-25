@@ -134,8 +134,8 @@ const Card = () => {
             <p className="font-serif text-xl font-semibold text-black">{item.firstName}</p>
             <p className="text-4xl font-bold tracking-wider text-gray-500">{item.lastName}</p>
           </div>
-          <div className="img w-[250px] aspect-square bg-gray-100 z-40 rounded-md border-2 border-yellow-500">
-            <img src={item.photoUrl} alt={item.firstName} />
+          <div className="img w-[250px] h-[250px] aspect-square bg-gray-100 z-40 rounded-md ">
+            <img src={item.photoUrl} alt={item.firstName} className='object-cover w-full h-full' />
           </div>
           <div className="z-40 flex flex-row items-end justify-between gap-10 btm-_container">
             <div className="flex flex-col items-start gap-1">

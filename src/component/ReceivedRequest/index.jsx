@@ -65,7 +65,7 @@ console.log(resp);
                             <img
                                 src={request.fromUserId.photoUrl}
                                 alt="Movie" 
-                                className='w-64'/>
+                                className='object-cover w-64 h-auto'/>
                         </figure>
                         <div className="card-body">
                             <span className="inline text-2xl font-semibold text-white">{request.fromUserId.firstName}  {request.fromUserId.lastName}</span>
