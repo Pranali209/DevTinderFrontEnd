@@ -3,7 +3,7 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import Header from './component/Header'
-import { Outlet, useNavigate } from 'react-router-dom'
+import { Outlet, useLocation, useNavigate } from 'react-router-dom'
 import Footer from './component/Footer'
 import { useEffect } from 'react'
 import axios from 'axios'
@@ -18,7 +18,8 @@ function App() {
   const dispatch = useDispatch()
   const navigate = useNavigate()
   const UserData = useSelector(store => store.user)
-
+  const location = useLocation()
+  const isChatRoute = location.pathname.startsWith('/chat/');
   useEffect(()=>{
      async  function HandleGetUser(params) {
      
@@ -48,8 +49,11 @@ function App() {
   },[])
   return (
     <>
-  <div className=' bg-gradient-to-br from-[#870BA3] to-[#FF9F2D] border-[1px] border-[#870BA3]'>
-      <Header />
+  <div className=' bg-gradient-to-br from-[#870BA3] to-[#FF9F2D] border-[1px] border-[#870BA3] h-screen'>
+    {
+     !isChatRoute &&   <Header />
+    }
+    
       
       <Outlet />
       

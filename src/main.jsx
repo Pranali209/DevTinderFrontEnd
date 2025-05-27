@@ -14,6 +14,7 @@ import Dashboard from './component/Profile/index.jsx'
 import ReceivedRequest from './component/ReceivedRequest/index.jsx'
 import EditProfile from './component/EditProfile/index.jsx'
 import Match from './component/Match/index.jsx'
+import ChatBox from './component/Chat/index.jsx'
 const router = createBrowserRouter([
   {
     path: '/',
@@ -48,6 +49,10 @@ const router = createBrowserRouter([
           }
 
         ]
+      },
+      {
+        path :'/chat/:targetUserId/:targetUserName',
+        element : <ChatBox/>
       }
       
     ]

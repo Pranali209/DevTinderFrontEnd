@@ -39,6 +39,15 @@ function Dashboard() {
                         <i className="w-5 h-5 mr-3 fas fa-handshake"></i>
                              Match
                         </NavLink>
+
+                        <NavLink to="/" className={({ isActive }) =>
+        isActive 
+            ? "flex items-center px-4 py-3 text-sm font-medium text-blue-600 rounded-lg bg-blue-50" 
+            : "flex items-center px-4 py-3 text-sm font-medium text-white rounded-lg hover:bg-gray-50 hover:text-black"
+    }>
+                        <i className="w-5 h-5 mr-3 fas fa-handshake"></i>
+                            Feed
+                        </NavLink>
                         
                        
                     </nav>

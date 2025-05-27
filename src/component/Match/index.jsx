@@ -10,7 +10,7 @@ function Match() {
                 withCredentials:true
              })
 
-             console.log(response.data.data);
+             console.log(response.data.data , " matches");
              setMatch(response.data.data)
         }
 
@@ -34,6 +34,9 @@ function Match() {
                    <p className='text-lg text-white'> {match.email}</p>
                     <div className="justify-end card-actions">
                         <button className="btn btn-primary"
+                        onClick={() => {
+                            window.location.href = `/chat/${match._id}/${match.firstName}`;
+                        }}
                         
                     >Chat</button>
                        

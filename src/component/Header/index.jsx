@@ -54,7 +54,7 @@ function Header() {
           <li>
             <Link className="justify-between" to = "/dashboard">
               Profile
-              <span className="badge">New</span>
+              
             </Link>
           </li>
           <li><a>Settings</a></li>
