@@ -4,7 +4,7 @@ import { Base_Url } from '../../utlis/Contant'
 
 function ReceivedRequest() {
     const [requests, setRequests] = useState([])
-
+    const [flag , setFlag] = useState(false)
     useEffect(() => {
         async function GetReceivedRequest(params) {
             try {
@@ -22,7 +22,7 @@ function ReceivedRequest() {
         GetReceivedRequest()
         console.log(requests, "request");
 
-    }, [])
+    }, [flag])
 
     async function handlingAcceptRequest(reqId ,status) {
         try {
@@ -31,7 +31,7 @@ function ReceivedRequest() {
             })
 
 console.log(resp);
-
+setFlag(prev => !prev)
             
         } catch (error) {
             console.error("Error Accepting the requests:", error);
@@ -46,7 +46,7 @@ console.log(resp);
                 withCredentials: true
             })
 
-console.log(resp);
+setFlag(prev => !prev)
 
             
         } catch (error) {
@@ -65,7 +65,7 @@ console.log(resp);
                             <img
                                 src={request.fromUserId.photoUrl}
                                 alt="Movie" 
-                                className='object-cover w-64 h-auto'/>
+                                className='object-cover w-64 h-full'/>
                         </figure>
                         <div className="card-body">
                             <span className="inline text-2xl font-semibold text-white">{request.fromUserId.firstName}  {request.fromUserId.lastName}</span>
