@@ -167,7 +167,7 @@ function ChatBox() {
                  transition-colors duration-200 cursor-pointer "
                  onClick={() => {
                             window.location.href = `/chat/${match._id}/${match.firstName}`;
-                        }}>
+                        }} >
                   <div className="flex items-center justify-between ">
                     <div className="flex items-center">
                       <img src={match.photoUrl} alt="Emma Smith" className="w-10 h-10 mr-2 rounded-full" />
@@ -221,8 +221,8 @@ function ChatBox() {
               const formattedTime = new Date(text.createdAt).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
               return (
                 text.senderId === LoggedInUserId?._id ? (
-                  <div className="flex justify-start mb-2 ">
-                    <div className="max-w-md p-2 bg-green-600 rounded-md " key={index}>
+                  <div className="flex justify-start mb-2 " key={index}>
+                    <div className="max-w-md p-2 bg-green-600 rounded-md " >
                       <p className="text-sm text-white">{text.text}</p>
                       <p className="text-xs text-right text-gray-400">{formattedTime}</p>
                     </div>

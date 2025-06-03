@@ -60,7 +60,7 @@ setFlag(prev => !prev)
         <div className='px-8 py-5 '>
             {requests.length > 0 ? (
                 requests.map((request, index) => (
-                    <div className="shadow-xl card card-side bg-base-100">
+                    <div className="mb-5 shadow-xl card card-side bg-base-100" key={index}>
                         <figure>
                             <img
                                 src={request.fromUserId.photoUrl}
